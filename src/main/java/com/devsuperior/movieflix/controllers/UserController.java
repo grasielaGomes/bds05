@@ -2,6 +2,7 @@ package com.devsuperior.movieflix.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +18,11 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
-		UserDTO dto = service.findById(id);
+	@GetMapping(value = "/profile")
+	public ResponseEntity<UserDTO> findByAuth() {
+		UserDTO dto = service.findByAuth();
 		return ResponseEntity.ok().body(dto);
 	}
+	
 
 }

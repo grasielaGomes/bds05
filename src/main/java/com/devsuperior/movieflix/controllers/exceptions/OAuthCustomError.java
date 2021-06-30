@@ -10,7 +10,7 @@ public class OAuthCustomError implements Serializable {
 
 	private String error;
 	
-	@JsonProperty
+	@JsonProperty("error_description")
 	private String errorDescription;
 	
 	public OAuthCustomError() {
